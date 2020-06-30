@@ -1,4 +1,4 @@
-package Files_Path_methods;
+package files_path_methods;
 
 import java.io.IOException;
 import java.io.InputStream;

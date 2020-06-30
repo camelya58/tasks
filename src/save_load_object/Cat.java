@@ -1,4 +1,4 @@
-package SaveAndLoadObject;
+package save_load_object;
 
 import java.awt.*;
 import java.io.Serializable;

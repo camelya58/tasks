@@ -1,4 +1,4 @@
-package File_methods;
+package file_methods;
 
 import java.io.File;
 import java.util.Objects;

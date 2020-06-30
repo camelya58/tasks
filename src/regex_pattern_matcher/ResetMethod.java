@@ -1,10 +1,10 @@
-package Regex_Pattern_Matcher;
+package regex_pattern_matcher;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Class ResetMethod represents the method of class Matcher such as reset.
+ * Class ResetMethod represents the method of class Matcher such as reset().
  *
  * @author Kamila Meshcheryakova
  * created by 30.06.2020
