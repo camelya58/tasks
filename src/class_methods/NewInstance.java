@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * Class NewInstance represents the collection of class Class methods such as
- * newInstance(), getDeclaredConstructor(), getName(), isInterface(),
+ * newInstance(), getName(), isInterface(),
  * getSimpleName(), getCanonicalName(), forName(String str),
  * getInterfaces(), getSuperclass(), getClass().
  *
