@@ -1,5 +1,7 @@
 package class_methods;
 
+import class_methods.Pet;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;

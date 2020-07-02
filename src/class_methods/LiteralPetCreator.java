@@ -14,7 +14,7 @@ public class LiteralPetCreator extends PetCreator {
                     Pug.class, EgyptianMau.class, Manx.class, Cymric.class,
                     Rat.class, Mouse.class, Hamster.class);
     // create random list of pets types
-    private static final List<Class<? extends  Pet>> types =
+    private static final List<Class<? extends Pet>> types =
             allTypes.subList(allTypes.indexOf(Mutt.class), allTypes.size());
     @Override
     public List<Class<? extends Pet>> types() {

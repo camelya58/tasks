@@ -14,7 +14,6 @@ public class Pet {
     }
     public Pet() {}
 }
-
 class Dog extends Pet {
     public Dog(String name) {
         super(name);

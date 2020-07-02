@@ -1,4 +1,4 @@
-package class_methods;
+package class_methods.utils;
 
 import java.util.LinkedHashMap;
 

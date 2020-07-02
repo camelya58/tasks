@@ -1,5 +1,7 @@
 package class_methods;
 
+import class_methods.utils.MapData;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,6 +20,7 @@ public class IsInstance {
         public void count(Pet pet) {
             // Class.isInstance help to avoid the chain of instanceof
           for(Map.Entry<Class<? extends Pet>, Integer> pair: entrySet())
+              // method isInstance() allows to check whether an object belongs to a class
               if(pair.getKey().isInstance(pet))
                   put(pair.getKey(), pair.getValue() + 1);
         }
