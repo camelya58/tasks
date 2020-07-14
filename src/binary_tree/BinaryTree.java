@@ -8,7 +8,9 @@ import java.util.List;
 
 /**
  * Class BinaryTree represents a model of tree, where every element has at most 2 children
- * and is arranged in ascending order.
+ * using ArrayList as a storage for elements.
+ * It can be arranged in ascending order using method 1
+ * or can't be arranged in ascending order using method 2.
  *
  * @author Kamila Meshcheryakova
  * created by 08.07.2020
@@ -29,6 +31,8 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
         return size;
     }
 
+    // This method allows to get parent name by element name or nobody,
+    // if the element with such name doesn't exist
     public String getParent(String elementName) {
         for (int i = 1; i < lists.size(); ++i) {
             Entry<String> currentElem = lists.get(i);
@@ -39,19 +43,20 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
         return "nobody, because there isn't such element as " + elementName;
     }
 
+    // this method adds the element as a leftChild at the beginning, then as a rightChild
+    @Override
     public boolean add(String elementName) {
         boolean check = false;
         Entry<String> currentElement = new BinaryTree.Entry<>(elementName);
-        // Method 1. If you want to return the opportunity to have children if you can't add new element to anybody
-//        if (lists.stream().noneMatch(Entry::isAvailableToAddChildren)) {
-//            if (lists.size() == 1) {
-//                lists.get(0).isAvailableToBeParent(lists.get(0));
-//            } else {
-//                for (int i = 1; i < lists.size(); i++) {
-//                    lists.get(i).isAvailableToBeParent(lists.get(i));
-//                }
-//            }
-//        }
+        // Method 1. If none of the element is available to add children
+        // then the opportunity to have children returns to element who doesn't have children
+        // is arranged in ascending order
+        if (lists.stream().noneMatch(Entry::isAvailableToAddChildren)) {
+            for (Entry<String> list : lists) {
+                if (list.leftChild != null && list.rightChild != null) continue;
+                list.isAvailableToBeParent(list);
+            }
+        }
         for (int i = 0; i < lists.size(); i++) {
             if (lists.get(i).isAvailableToAddChildren()) {
                 if (lists.get(i).availableToAddLeftChildren) {
@@ -76,6 +81,7 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
         return false;
     }
 
+    // this method removes the element by name with all his children using recursive
     @Override
     public boolean remove(Object elementName) {
         if (elementName instanceof String) {
@@ -91,6 +97,7 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
         }
     }
 
+    // this method allows to remove element together with all his branch of heirs
     private void removeRecursive(Entry<String> currentElem) {
         if (currentElem.leftChild != null || currentElem.rightChild != null) {
             if (currentElem.leftChild != null) {
@@ -111,13 +118,17 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
             currentElem.parent.rightChild = null;
         }
 
-        // Method 2.
-        if (currentElem.parent.leftChild == null && currentElem.parent.rightChild == null &&
-                !currentElem.parent.availableToAddLeftChildren && !currentElem.parent.availableToAddRightChildren)
-            currentElem.parent.isAvailableToBeParent(currentElem.parent);
+        // if the element isn't available to add left and right child and doesn't have any child
+        // then the opportunity to have a child returns to element
+        // isn't arranged in ascending order
+
+//        if (currentElem.parent.leftChild == null && currentElem.parent.rightChild == null &&
+//                !currentElem.parent.availableToAddLeftChildren && !currentElem.parent.availableToAddRightChildren)
+//            currentElem.parent.isAvailableToBeParent(currentElem.parent);
 
         size--;
     }
+
     @Override
     public String get(int index) {
         throw new UnsupportedOperationException();
@@ -169,37 +180,38 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
                     || this.availableToAddRightChildren
                     || this.availableToAddLeftChildren;
         }
+
         public void isAvailableToBeParent(Entry<T> element) {
             element.availableToAddLeftChildren = true;
             element.availableToAddRightChildren = true;
         }
     }
+
     public static void main(String[] args) {
-        List<String> list = new BinaryTree();
+        BinaryTree list = new BinaryTree(); // root initializes during creation of BinaryTree
 
         for (int i = 1; i < 16; i++) {
             list.add(String.valueOf(i));
         }
 
         System.out.println("The list size is " + list.size());
-        System.out.println("The parent of the child 8 is " + ((BinaryTree) list).getParent("8"));
-        System.out.println("The parent of the child 20 is  " + ((BinaryTree) list).getParent("20"));
+        System.out.println("The parent of the child 8 is " + list.getParent("8"));
+        System.out.println("The parent of the child 20 is  " + list.getParent("20"));
 
         list.remove("3");
         System.out.println("The entry 3 is deleted");
-        System.out.println("The parent of the child 8 is " + ((BinaryTree) list).getParent("8"));
+        System.out.println("The parent of the child 8 is " + list.getParent("8"));
 
         list.add("16");
-        System.out.println("The parent of the child 16 is " + ((BinaryTree) list).getParent("16"));
+        System.out.println("The parent of the child 16 is " + list.getParent("16"));
 
         list.remove("4");
         System.out.println("The entry 4 is deleted");
         list.remove("5");
         System.out.println("The entry 5 is deleted");
-        list.remove("6");
-        System.out.println("The entry 6 is deleted");
+
         System.out.println("Expected: true. Actual: " + list.add("20"));
-        System.out.println("The parent of the child 20 is " + ((BinaryTree) list).getParent("20"));
+        System.out.println("The parent of the child 20 is " + list.getParent("20"));
 
         list.remove("1");
         System.out.println("The entry 1 is deleted");
@@ -207,10 +219,10 @@ public class BinaryTree extends AbstractList<String> implements Cloneable, Seria
         System.out.println("The entry 2 is deleted");
         System.out.println("The list size is " + list.size());
         System.out.println("Expected: true. Actual: " + list.add("21"));
-        System.out.println("The parent of the child 21 is " + ((BinaryTree) list).getParent("21"));
+        System.out.println("The parent of the child 21 is " + list.getParent("21"));
         System.out.println("The list size is " + list.size());
     }
-} /* Output:
+} /* Output for Method 1:
 The list size is 15
 The parent of the child 8 is 3
 The parent of the child 20 is  nobody, because there isn't such element as 20
@@ -219,7 +231,25 @@ The parent of the child 8 is nobody, because there isn't such element as 8
 The parent of the child 16 is 9
 The entry 4 is deleted
 The entry 5 is deleted
-The entry 6 is deleted
+Expected: true. Actual: true
+The parent of the child 20 is 13
+The entry 1 is deleted
+The entry 2 is deleted
+The list size is 0
+Expected: true. Actual: true
+The parent of the child 21 is 0
+The list size is 1
+
+
+Output for Method 2:
+The list size is 15
+The parent of the child 8 is 3
+The parent of the child 20 is  nobody, because there isn't such element as 20
+The entry 3 is deleted
+The parent of the child 8 is nobody, because there isn't such element as 8
+The parent of the child 16 is 9
+The entry 4 is deleted
+The entry 5 is deleted
 Expected: true. Actual: true
 The parent of the child 20 is 1
 The entry 1 is deleted
