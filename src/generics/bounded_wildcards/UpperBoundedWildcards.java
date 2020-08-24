@@ -19,6 +19,14 @@ class Book {
         this.title = title;
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }
 
 class Magazine extends Book {
@@ -47,6 +55,6 @@ public class UpperBoundedWildcards {
         System.out.println(s);
     }
 } /* Output:
-[generics.bounded_wildcards.Book@6b884d57, generics.bounded_wildcards.Book@38af3868]
-[generics.bounded_wildcards.Magazine@77459877, generics.bounded_wildcards.Magazine@5b2133b1]
+[Book{title='American tragedy', author='Theodore Dreiser'}, Book{title='Trilogy of Desire: The Financier. The Titan. The Stoic.', author='Theodore Dreiser'}]
+[Book{title='Around the World', author='Alexander Belayev'}, Book{title='People', author='Larry Hackett'}]
 */

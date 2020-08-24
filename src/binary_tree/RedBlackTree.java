@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Class RedBlackTree represents a model of red black tree.
+ * Class RedBlackTree represents a model of red black tree, where every element has at most 2 children
+ * and is arranged in ascending order.
  *
  * @author Kamila Meshcheryakova
  * created by 08.07.2020
@@ -123,6 +124,23 @@ public class RedBlackTree extends AbstractList<Integer> implements Cloneable, Se
         tree.add(6);
         tree.add(7);
 
+        int a = 10;
+        int c = a;
+        int b = ++a;
+        if (b >= a){
+            if (c == 10){
+                if ((c <= b) && (a != b)){
+                    System.out.println("All statements are true.");
+                } else {
+                    System.out.println("One of the statements isn't true.");
+                }
+            } else {
+                System.out.println("One of statements is true.");
+            }
+        } else {
+            System.out.println("All statements are false");
+        }
+        System.out.println(c + " " + b + " " + a);
         System.out.println("The list size is " + tree.size());
         System.out.println("The parent of the child 6 is " + tree.getParent(6));
         System.out.println("The parent of the child 20 is " + tree.getParent(20));
