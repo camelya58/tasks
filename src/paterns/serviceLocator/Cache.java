@@ -12,17 +12,27 @@ import java.util.List;
 public class Cache {
     private final List<MessagingService> services = new ArrayList<>();
 
+    // if there is a service in a cache we return the service by name
     public MessagingService getService(String serviceName) {
-        for (MessagingService service: services) {
-            if (service.getServiceName().equals(serviceName)) {
-                return service;//retrieve from the list
+        for (MessagingService service : services) {
+            if (service.getServiceName().equalsIgnoreCase(serviceName)) {
+                System.out.println("Return cached  " + serviceName + " object");
+                return service;
             }
         }
-        throw new RuntimeException("There are not such service");
+        return null;
     }
 
+    // check that service is not exist in a cache and add it to cache
     public void addService(MessagingService newService) {
-        services.add(newService);
-        //add to the list
+        boolean exists = false;
+        for (MessagingService service : services) {
+            if (service.getServiceName().equalsIgnoreCase(newService.getServiceName())) {
+                exists = true;
+            }
+        }
+        if (!exists) {
+            services.add(newService);
+        }
     }
 }
