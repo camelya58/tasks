@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:soap="http://cxf.apache.org/bindings/soap">
+    <soap:item>
+        <!-- <soap:info/> -->
+    </soap:item>
+    <!-- это тоже комментарий -->
+</data>
