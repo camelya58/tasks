@@ -1,7 +1,8 @@
 package json;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 
 /**
  * Class JsonDeserialization demonstrates converting json object to java object.
@@ -13,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * created by 10.09.2020
  */
 public class JsonDeserialization {
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws IOException {
         String jsonString = "{\"name\":\"Spike\",\"dogs\":[{\"name\":\"Taffy\"},{\"name\":\"Killer\"}]}";
         ObjectMapper mapper = new ObjectMapper();
         Dog dog = mapper.readValue(jsonString, Dog.class);
