@@ -1,4 +1,4 @@
-package paterns.decorator;
+package paterns.decorator.mixindecorator;
 
 import java.util.Date;
 
