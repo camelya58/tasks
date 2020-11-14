@@ -6,8 +6,8 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * Class Cat
- * @XmlRootElement allows to set that it can be the "root of a tree".
- * @XmlType(name = «cat») mark as a JAXB serialization and set a name of tag.
+ * -@XmlRootElement allows to set that it can be the "root of a tree".
+ * -@XmlType(name = «cat») mark as a JAXB serialization and set a name of tag.
  *
  * @author Kamila Meshcheryakova
  * created by 14.09.2020

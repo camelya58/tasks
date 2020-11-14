@@ -24,7 +24,7 @@ public class PolymorphicSerialization {
         dog.age = 8;
         dog.owner = "Bill Jeferson";
 
-        ArrayList<Pet> pets = new ArrayList<>();
+        ArrayList<Pet> pets = new ArrayList<Pet>();
         pets.add(cat);
         pets.add(dog);
 

@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * Class Solution demonstrates serialization of date.
- * @JsonFormat allows to set won date format
+ * -@JsonFormat allows to set won date format
  *
  * @author Kamila Meshcheryakova
  * created by 11.09.2020

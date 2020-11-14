@@ -11,15 +11,15 @@ import java.util.List;
 /**
  * Class JaxbAnnotations
  *
- * @XmlElement(name) Ставится около поля. Поле будет представлено в XML-элементом.
+ * -@XmlElement(name) Ставится около поля. Поле будет представлено в XML-элементом.
  * Позволяет задать имя для тэга.
- * @XmlAttribute(name) Ставится около поля. Поле будет представлено в XML-атрибутом!
+ * -@XmlAttribute(name) Ставится около поля. Поле будет представлено в XML-атрибутом!
  * Позволяет задать имя для атрибута.
- * @XmlElementWrapper(nillable = true)	Ставится около поля.
+ * -@XmlElementWrapper(nillable = true)	Ставится около поля.
  * Позволяет задать «обрамляющий тег» для группы элементов.
- * @XmlType Ставится около класса.
+ * -@XmlType Ставится около класса.
  * Позволяет задать метод для создания объекта, если конструктор по умолчанию private.
- * @XmlJavaTypeAdapter Ставится около поля.
+ * -@XmlJavaTypeAdapter Ставится около поля.
  * Позволяет задать класс, который будет преобразовывать данные поля в строку.
  *
  * @author Kamila Meshcheryakova
@@ -60,7 +60,7 @@ public class JaxbAnnotations {
 class Zoo {
     //У коллекции есть свой тег – «wild-animals» , который обрамляет все элементы коллекции.
     @XmlElementWrapper(name="wild-animals", nillable = true)
-    public List<Animal> animals = new ArrayList<>();
+    public List<Animal> animals = new ArrayList<Animal>();
 }
 //С помощью атрибута @XmlType мы поменяли тэг cat на tiger.
 @XmlType(name = "tiger")

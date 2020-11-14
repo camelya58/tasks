@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
-
 /**
  * Class MappedToEachOther demonstrates converting from one object to another.
  * The objects don't have any binds, but have the same fields.
@@ -18,14 +16,14 @@ import java.io.IOException;
  * created by 11.09.2020
  */
 public class MappedToEachOther {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Second s = (Second) convertOneToAnother(new First(), Second.class);
         First f = (First) convertOneToAnother(new Second(), First.class);
         System.out.println(s);
         System.out.println(f);
     }
 
-    public static Object convertOneToAnother(Object one, Class resultClassObject) throws IOException {
+    public static Object convertOneToAnother(Object one, Class<?> resultClassObject)  {
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(MapperFeature.USE_ANNOTATIONS);
         return mapper.convertValue(one, resultClassObject);
