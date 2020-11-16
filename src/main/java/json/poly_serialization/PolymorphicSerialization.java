@@ -1,4 +1,4 @@
-package json.poly_serialization;
+package main.java.json.json.poly_serialization;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
