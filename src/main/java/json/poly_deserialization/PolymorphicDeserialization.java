@@ -1,4 +1,4 @@
-package json.poly_deserialization;
+package main.java.json.json.poly_deserialization;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -59,6 +59,6 @@ public class PolymorphicDeserialization {
 Output with annotations:
 {"pets":[{"type":"dog","name":"Killer","age":8,"owner":"Bill Jeferson"},{"type":"cat","name":"Murka","age":5}]}
  ________________________________________
-class json.poly_deserialization.Dog
-class json.poly_deserialization.Cat
+class main.java.json.json.poly_deserialization.Dog
+class main.java.json.json.poly_deserialization.Cat
  */

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 /**
- * Class JsonDeserialization demonstrates converting json object to java object.
+ * Class JsonDeserialization demonstrates converting main.java.json.json object to java object.
  *
  * Array, ArrayList, LinkedList replace to array in JSON-format.
  * So you need to rely on jackson and let him select or you can add annotation @JsonDeserialize(as = LinkedList.class).

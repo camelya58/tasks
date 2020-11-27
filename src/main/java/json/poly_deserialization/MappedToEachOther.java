@@ -1,4 +1,4 @@
-package json.poly_deserialization;
+package main.java.json.json.poly_deserialization;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
