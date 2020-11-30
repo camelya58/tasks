@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
  * created by 30.11.2020
  */
 public class CountDownLatchSample {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // this constructor has a parameter - the number of events that must occur before the self-blocking is released
         CountDownLatch cdl = new CountDownLatch(5);
 
@@ -21,7 +21,7 @@ public class CountDownLatchSample {
             // the wait continues until the count reaches zero
             cdl.await();
         } catch (InterruptedException exc) {
-            System.out.println(exc);
+            exc.printStackTrace();
         }
         System.out.println("Thread terminates");
     }
