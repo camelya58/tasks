@@ -1,4 +1,4 @@
-package main.java.files_path_methods;
+package files_path_methods;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,5 +23,9 @@ public class PathMethods {
         Path relative = result.relativize(p3);
         System.out.println(relative);
         // ../../SomeFile.txt
+
+        Path p4 =  Paths.get("Users", "igor", "IdeaProjects", "unpacked");
+        Path resolve = p4.relativize(result);
+        System.out.println(resolve);
     }
 }
