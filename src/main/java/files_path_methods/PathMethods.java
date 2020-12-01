@@ -23,9 +23,5 @@ public class PathMethods {
         Path relative = result.relativize(p3);
         System.out.println(relative);
         // ../../SomeFile.txt
-
-        Path p4 =  Paths.get("Users", "igor", "IdeaProjects", "unpacked");
-        Path resolve = p4.relativize(result);
-        System.out.println(resolve);
     }
 }
