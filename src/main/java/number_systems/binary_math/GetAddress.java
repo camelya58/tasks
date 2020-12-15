@@ -1,4 +1,4 @@
-package binary_math;
+package number_systems.binary_math;
 
 /**
  * Class GetAddress demonstrates how to determine the net address.
