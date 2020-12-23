@@ -1,7 +1,9 @@
 package paterns.serviceLocator;
 
 /**
- * Class ServiceLocator allows to initialize and retrieve any services which implements MessageService.
+ * Class ServiceLocator demonstrates the work of service locator pattern, which
+ * allows to return service instances on demand. ** This is useful for separating consumers of a service from specific classes.
+ * And allows to initialize and retrieve any services which implements MessageService.
  *
  * @author Kamila Meshcheryakova
  * created by 07.09.2020
